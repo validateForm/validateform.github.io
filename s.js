@@ -29,8 +29,10 @@ valid = () => {
                     inputs[i].parentNode.appendChild(span);
                     errors = true;
                     run_onchange = true;
-                    inputs[i].style.border = '1px solid #c6807b';
-                    inputs[i].style.background = '#fffcf9';
+                    // inputs[i].style.border = '1px solid #c6807b';
+                    // inputs[i].style.background = '#fffcf9';
+                    inputs[i].style.border = '1px solid red';
+                    inputs[i].style.background = 'lightgreen';
                 }
             }
         if (!errors) alert('Đăng ký thành công');
@@ -46,8 +48,10 @@ for (const i in inputs)
     if (inputs.hasOwnProperty(i))
         inputs[i].onchange = function() {
             if (run_onchange) {
-                this.style.border = '1px solid #999';
-                this.style.background = '#fff';
+                // this.style.border = '1px solid #999';
+                // this.style.background = '#fff';
+                inputs[i].style.border = '1px solid lightblue';
+                inputs[i].style.background = 'pink';
                 valid();
             }
         }
