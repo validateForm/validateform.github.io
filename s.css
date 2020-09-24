@@ -2,10 +2,10 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-input[type=text],
+[type=text],
 [type=password],
 [type=email],
-[type=tel] {
+[type=number] {
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -13,6 +13,7 @@ input[type=text],
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    margin-left: 2%;
 }
 
 input[type=submit] {
