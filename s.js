@@ -4,6 +4,8 @@ run_onchange = false;
 valid = () => {
     let errors = false;
     let reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
+    // let reg_phone = /[0-9]{10}/g;
+    // let reg_phone = new RegExp("[0-9]{10}")
     for (const i in inputs)
         if (inputs.hasOwnProperty(i)) {
             let value = inputs[i].value;
@@ -21,18 +23,22 @@ valid = () => {
                     var pass = value;
                 }
                 if (id == 'confirm_pass' && value != pass) span.innerHTML = ' Password nhập lại chưa đúng';
-                // if (id == 'phone' && isNaN(value)) span.innerHTML = ' Số điện thoại phải là kiểu số';
+                // if (id == 'phone' && isNaN(value) && !reg_phone.test(value)) {
+                //     span.innerHTML = ' Số điện thoại phải là kiểu số';
+                //     console.log(value)
+                //     console.log(reg_phone.test(value))
+                // }
             }
             if (span.innerHTML != '') {
                 inputs[i].parentNode.appendChild(span);
                 errors = true;
                 run_onchange = true;
-                // inputs[i].style.border = '1px solid #c6807b';
-                // inputs[i].style.background = '#fffcf9';
-                inputs[i].style.border = '1px solid red';
-                inputs[i].style.background = 'lightgreen';
+                inputs[i].style.border = '1px solid #c6807b';
+                inputs[i].style.background = 'red';
+                // inputs[i].style.border = '1px solid pink';
             }
         }
+    console.log(document.getElementById('phone').pattern)
     if (!errors) alert('Đăng ký thành công');
     return !errors;
 }
@@ -43,10 +49,9 @@ for (const i in inputs)
     if (inputs.hasOwnProperty(i))
         inputs[i].onchange = function() {
             if (run_onchange) {
-                // this.style.border = '1px solid #999';
-                // this.style.background = '#fff';
-                inputs[i].style.border = '1px solid lightblue';
-                inputs[i].style.background = 'pink';
+                this.style.border = '1px solid #999';
+                this.style.background = 'lightblue';
+                // inputs[i].style.border = '1px solid lightblue';
                 valid();
             }
         }
